@@ -1,0 +1,55 @@
+body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .container {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        width: 400px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input, select, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background: #e1306c;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #c6285c;
+    }
+
+    .result {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .real {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .fake {
+        background: #f8d7da;
+        color: #721c24;
+    }

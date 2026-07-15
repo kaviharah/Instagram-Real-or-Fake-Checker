@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Instagramaccounts.css">
+<title>Instagram Account Checker</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Instagram Real/Fake Checker</h2>
+
+    <input type="number" id="followers" placeholder="Followers">
+
+    <input type="number" id="following" placeholder="Following">
+
+    <input type="number" id="posts" placeholder="Posts">
+
+    <input type="number" id="age" placeholder="Account Age (months)">
+
+    <select id="profilePic">
+        <option value="yes">Has Profile Picture</option>
+        <option value="no">No Profile Picture</option>
+    </select>
+
+    <button onclick="checkAccount()">Analyze Account</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function checkAccount() {
+    const followers = Number(document.getElementById("followers").value);
+    const following = Number(document.getElementById("following").value);
+    const posts = Number(document.getElementById("posts").value);
+    const age = Number(document.getElementById("age").value);
+    const profilePic = document.getElementById("profilePic").value;
+    let score = 0;
+
+    if (followers > 50) score += 20;
+    if (posts > 5) score += 20;
+    if (age > 3) score += 20;
+
+    if (following > 0) {
+        const ratio = followers / following;
+
+        if (ratio > 0.1 && ratio < 10) {
+            score += 10;
+        }
+    }
+
+    const resultDiv = document.getElementById("result");
+
+    if (score >= 60) {
+        resultDiv.className = "result real";
+        resultDiv.innerHTML =
+            `Likely Real Account<br>Trust Score: ${score}/100`;
+    } else {
+        resultDiv.className = "result fake";
+        resultDiv.innerHTML =
+            `Possibly Fake or Suspicious Account<br>Trust Score: ${score}/100`;
+    }
+}
+</script>
+
+</body>
+</html>
